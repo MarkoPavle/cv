@@ -4,7 +4,7 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$message = $_POST['message'];
 	$to = 'markopavle@gmail.com';
-	$subject = "contact";
+	$subject = "subject";
 
     //headers
 
@@ -13,14 +13,9 @@ if (isset($_POST['submit'])) {
     $txt = "You have received an e-mail from".$name.".\n\n".$message;
 
 	//Send
-	$send = mail($to, $subject, $txt, $headers );
+	mail($to, $subject, $txt, $headers );
 
-	if($send){
-		echo 'Thank you for contacting me!';
-	}
-	else {
-		echo 'Error';
-	}
+	header("Location: index.html?mailsend")
 
 }
 ?>
